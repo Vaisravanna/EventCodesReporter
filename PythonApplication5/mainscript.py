@@ -5,17 +5,17 @@ def analyze_events(code):
     CriticalErrCount = 0
     UnkEve = 0
 
+    CommonEveCodes = [200]
+    ConErrCodes = [401,403]
+    ResNotFoundCodes = [404]
+    CriticalErrCodes = [500,503]
+
     for i in code:
-        if i == 200:
-            CommonEvent += 1
-        elif i == 401 or i == 403:
-            ConErrEve += 1
-        elif i == 404:
-            ResNotFound += 1
-        elif i == 500 or i == 503:
-            CriticalErrCount += 1
-        else:
-            UnkEve += 1
+        for j in CommonEveCodes:
+            if i == j:
+                CommonEvent+=1
+
+        
 
     return CommonEvent, ConErrEve, ResNotFound, CriticalErrCount, UnkEve
 
@@ -41,6 +41,7 @@ def ReportPrinter(CommonEvent, ConErrEve, ResNotFound, CriticalErrCount, UnkEve)
 
 def main():
     codes = list(map(int, input().split()))
+
     CommonEvent, ConErrEve, ResNotFound, CriticalErrCount, UnkEve = analyze_events(codes)
     status = StatusAnalyzer(CriticalErrCount)
     ReportPrinter(CommonEvent, ConErrEve, ResNotFound, CriticalErrCount, UnkEve)
