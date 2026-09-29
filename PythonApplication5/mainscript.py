@@ -14,7 +14,15 @@ def analyze_events(code):
         for j in CommonEveCodes:
             if i == j:
                 CommonEvent+=1
-
+         for j in ConErrCodes:
+            if i == j:
+                ConErrCodes+=1
+         for i in ResNotFoundCodes:
+             if i == j:
+                 ResNotFoundCodes+=1
+          for i in CriticalErrCodes:
+              if i == j:
+                  CriticalErrCodes+=1
         
 
     return CommonEvent, ConErrEve, ResNotFound, CriticalErrCount, UnkEve
