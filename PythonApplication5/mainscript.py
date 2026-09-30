@@ -54,9 +54,10 @@ def ReportPrinter(CommonEvent, ConErrEve, ResNotFound, CriticalErrCount, UnkEve,
           "\n Количество проблем нахождения ресурса: ", ResNotFound,
           "\n Количество критических серверных ошибок: ", CriticalErrCount,
           "\n Количество неизвестных событий: ", UnkEve,
-          "\n Статус: ", status,
-          "\n Номера неизвестных событий: ")
-
+          "\n Статус: ", status)
+    if ConErrEve>=3:
+        print("Проверить доступ/авторизацию")
+    print("\n Номера неизвестных событий: ")
     for i in UnkEveList:
         print(i)
 
